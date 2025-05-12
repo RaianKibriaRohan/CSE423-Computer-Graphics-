@@ -75,7 +75,7 @@ enemy_scale_factor = 1
 enemy_scale_direction = 1
 enemy_speed = 2
 
-player_health = 1000
+player_health = 15
 score = 0
 player_dead = False
 missed_bullets = 0
@@ -243,10 +243,10 @@ def update_bosses():
             if boss['respawn_timer'] <= 0:
                 boss['health'] = 100
                 boss['alive'] = True
-                boss['respawn_timer'] = 15
+                boss['respawn_timer'] = 8
                 print(f"Boss in room {boss['room']} respawned at {boss['pos']}")
         else:
-            boss['respawn_timer'] = 15
+            boss['respawn_timer'] = 8
 
 def move_boss_towards_player(boss):
     global player_health, player_dead
@@ -590,7 +590,7 @@ def update_bullets():
                         hit_enemy = True
                         if boss['health'] <= 0:
                             boss['alive'] = False
-                            boss['respawn_timer'] = 15
+                            boss['respawn_timer'] = 8
                             score += 20
                             if boss['room'] == 1:
                                 boss['death_count'] += 1
